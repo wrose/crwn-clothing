@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
-import './custom-button.component.scss';
+import './custom-button.styles.scss';
 
 interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   isGoogleSignIn?: boolean;
