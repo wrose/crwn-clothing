@@ -1,12 +1,13 @@
 import { ActionTypes } from './types';
 import { Dispatch } from 'redux';
+import { User } from 'firebase';
 
 export interface SetCurrentUserAction {
   type: ActionTypes.setCurrentUser;
-  payload: firebase.User;
+  payload: User;
 }
 
-export const setCurrentUser = (user: firebase.User) => {
+export const setCurrentUser = (user: User) => {
   return (dispatch: Dispatch) => {
     // const response = auth.signInWithEmailAndPassword(email, password);
     dispatch<SetCurrentUserAction>({

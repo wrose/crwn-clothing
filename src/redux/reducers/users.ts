@@ -1,7 +1,8 @@
 import { Action, ActionTypes } from '../actions';
+import { User } from "firebase";
 
 export interface UserState {
-  currentUser: firebase.User | null;
+  currentUser: User | null;
 }
 
 const INITIAL_STATE: UserState = { currentUser: null };
@@ -12,6 +13,11 @@ export const userReducer = (state: UserState = INITIAL_STATE, action: Action) =>
       return {
         ...state,
         currentUser: action.payload
+      };
+    case ActionTypes.unsetCurrentUser:
+      return {
+        ...state,
+        currentUser: null
       };
     default:
       return state;
