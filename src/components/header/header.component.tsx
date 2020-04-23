@@ -7,6 +7,7 @@ import { User } from 'firebase';
 import './header.styles.scss';
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { StoreState } from "../../redux/reducers";
+import CartIcon from "../cart-icon/cart-icon.component";
 
 interface HeaderProps {
   currentUser: User | null;
@@ -31,11 +32,11 @@ const Header = ({ currentUser }: HeaderProps) => (
           SIGN IN
         </Link>
       }
+      <CartIcon/>
     </div>
   </div>
 );
 
-// const mapStateToProps = ({userState}: StoreState) => {
 const mapStateToProps = (state: StoreState) => ({
   currentUser: state.user.currentUser
 });
