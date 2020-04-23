@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
+import { connect } from 'react-redux';
 
 import './header.styles.scss';
 import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { StoreState } from "../../redux/reducers";
 
 interface HeaderProps {
   currentUser: firebase.User | null;
@@ -32,4 +34,11 @@ const Header = ({ currentUser }: HeaderProps) => (
   </div>
 );
 
-export default Header;
+// const mapStateToProps = ({userState}: StoreState) => {
+const mapStateToProps = (state: StoreState) => ({
+  currentUser: state.user.currentUser
+});
+
+export default connect(
+  mapStateToProps
+)(Header);
