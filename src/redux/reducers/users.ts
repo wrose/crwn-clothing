@@ -7,7 +7,7 @@ export interface UserState {
 
 const INITIAL_STATE: UserState = { currentUser: null };
 
-export const userReducer = (state: UserState = INITIAL_STATE, action: Action) => {
+const userReducer = (state: UserState = INITIAL_STATE, action: Action) => {
   switch (action.type) {
     case ActionTypes.setCurrentUser:
       return {
@@ -23,3 +23,5 @@ export const userReducer = (state: UserState = INITIAL_STATE, action: Action) =>
       return state;
   }
 };
+
+export default userReducer;

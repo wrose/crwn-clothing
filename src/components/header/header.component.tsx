@@ -8,12 +8,14 @@ import './header.styles.scss';
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { StoreState } from "../../redux/reducers";
 import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 interface HeaderProps {
   currentUser: User | null;
+  hidden: boolean;
 }
 
-const Header = ({ currentUser }: HeaderProps) => (
+const Header = ({ currentUser, hidden }: HeaderProps) => (
   <div className='header'>
     <Link to='/' className='logo-container'>
       <Logo className='logo'/>
@@ -34,12 +36,21 @@ const Header = ({ currentUser }: HeaderProps) => (
       }
       <CartIcon/>
     </div>
+    {
+      hidden ? null :
+        <CartDropdown/>
+    }
   </div>
 );
 
-const mapStateToProps = (state: StoreState) => ({
-  currentUser: state.user.currentUser
-});
+// const mapStateToProps = (state: StoreState) => ({
+//   currentUser: state.user.currentUser
+// });
+
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }: StoreState) => ({
+  currentUser,
+  hidden
+})
 
 export default connect(
   mapStateToProps

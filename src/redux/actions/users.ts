@@ -20,14 +20,12 @@ export const setCurrentUser = (user: User) => {
 
 export interface UnsetCurrentUserAction {
   type: ActionTypes.unsetCurrentUser;
-  payload: null;
 }
 
 export const unsetCurrentUser = () => {
   return (dispatch: Dispatch) => {
     dispatch<UnsetCurrentUserAction>({
-      type: ActionTypes.unsetCurrentUser,
-      payload: null
+      type: ActionTypes.unsetCurrentUser
     });
   }
 }
