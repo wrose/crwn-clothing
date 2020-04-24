@@ -11,20 +11,12 @@ interface Section {
   linkUrl: string;
 }
 
-interface DirectoryProps {
-
-}
-
 interface DirectoryState {
   sections: Section[];
 }
 
-
-
-class Directory extends React.Component<DirectoryProps, DirectoryState> {
-  constructor(props: DirectoryProps) {
-    super(props);
-    this.state = {
+class Directory extends React.Component<any, DirectoryState> {
+    state = {
       sections: [
         {
           title: 'hats',
@@ -59,8 +51,7 @@ class Directory extends React.Component<DirectoryProps, DirectoryState> {
           linkUrl: 'shop/mens'
         }
       ]
-    };
-  }
+  };
 
   render() {
     return (

@@ -4,12 +4,13 @@ import './cart-dropdown.styles.scss';
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
 import { StoreState } from "../../redux/reducers";
+import { ShopItem } from "../../pages/shop/shop.data";
 
 interface CartDropdownProps {
-  hidden: boolean;
+  cartItems: ShopItem[];
 }
 
-const CartDropdown = ({ hidden }: CartDropdownProps) => {
+const CartDropdown = ({ cartItems }: CartDropdownProps) => {
   return (
     <div className='cart-dropdown'>
       <div className='cart-items'/>
@@ -18,8 +19,8 @@ const CartDropdown = ({ hidden }: CartDropdownProps) => {
   );
 };
 
-const mapStateToProps = (state: StoreState) => ({
-  hidden: state.cart.hidden
+const mapStateToProps = ({ cart: { cartItems } }: StoreState) => ({
+  cartItems: cartItems
 });
 
 export default connect(mapStateToProps)(CartDropdown);

@@ -6,10 +6,6 @@ import CustomButton from "../custom-button/custom-button.component";
 
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
-interface SignInProps {
-
-}
-
 interface SignInState {
   email: string;
   password: string;
@@ -17,15 +13,11 @@ interface SignInState {
   [key: string]: any;
 }
 
-class SignIn extends Component<SignInProps, SignInState> {
-  constructor(props: SignInProps) {
-    super(props);
-
-    this.state = {
-      email: '',
-      password: ''
-    }
-  }
+class SignIn extends Component<any, SignInState> {
+  state = {
+    email: '',
+    password: ''
+  };
 
   handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

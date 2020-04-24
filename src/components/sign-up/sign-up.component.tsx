@@ -15,16 +15,12 @@ interface SignUpState {
 }
 
 class SignUp extends React.Component<any, SignUpState> {
-  constructor(props: any) {
-    super(props);
-
-    this.state = {
-      displayName: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    }
-  }
+  state = {
+    displayName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  };
 
   handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -64,10 +60,13 @@ class SignUp extends React.Component<any, SignUpState> {
         <h2 className='title'>I do not have an account</h2>
         <span>Sign up with your email and password</span>
         <form className='sign-up-form' onSubmit={this.handleSubmit}>
-          <FormInput handleChange={this.handleChange} name='displayName' label='display name' type='text' value={displayName} required/>
+          <FormInput handleChange={this.handleChange} name='displayName' label='display name' type='text'
+                     value={displayName} required/>
           <FormInput handleChange={this.handleChange} name='email' label='email' type='email' value={email} required/>
-          <FormInput handleChange={this.handleChange} name='password' label='password' type='password' value={password} required/>
-          <FormInput handleChange={this.handleChange} name='confirmPassword' label='confirm password' type='password' value={confirmPassword}
+          <FormInput handleChange={this.handleChange} name='password' label='password' type='password' value={password}
+                     required/>
+          <FormInput handleChange={this.handleChange} name='confirmPassword' label='confirm password' type='password'
+                     value={confirmPassword}
                      required/>
           <CustomButton type='submit'>SIGN UP</CustomButton>
         </form>
