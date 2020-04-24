@@ -1,5 +1,5 @@
 import { Action, ActionTypes } from "../actions";
-import { CartItem, ShopItem } from "../../pages/shop/shop.data";
+import { CartItem } from "../../pages/shop/shop.data";
 import { addItemToCart } from "../utils/cart";
 
 export interface CartState {
