@@ -7,11 +7,12 @@ import ShopPage from "./pages/shop/shop.component";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import { setCurrentUser } from "./redux/actions";
-import { StoreState } from "./redux/reducers";
 import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "./redux/selectors/users";
 import { User } from "firebase";
+import CheckoutPage from "./pages/checkout/checkout.component";
+import { setCurrentUser } from "./features/users/actions";
+import { StoreState } from "./store";
+import { selectCurrentUser } from "./features/users/selectors";
 
 interface AppProps {
   currentUser: User | null;
@@ -55,6 +56,7 @@ class App extends React.Component<AppProps, any> {
         <Switch>
           <Route exact path='/' component={HomePage}/>
           <Route path='/shop' component={ShopPage}/>
+          <Route exact path='/checkout' component={CheckoutPage}/>
           <Route exact
                  path='/signin'
                  render={() =>

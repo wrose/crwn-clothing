@@ -2,9 +2,9 @@ import React from "react";
 
 import './collection-item.styles.scss';
 import CustomButton from "../custom-button/custom-button.component";
-import { addItem } from "../../redux/actions";
 import { connect } from "react-redux";
 import { ShopItem } from "../../pages/shop/shop.data";
+import { addItem } from "../../features/cart/actions";
 
 interface CollectionItemProps {
   item: ShopItem;

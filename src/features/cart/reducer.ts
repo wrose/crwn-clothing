@@ -1,6 +1,8 @@
-import { Action, ActionTypes } from "../actions";
 import { CartItem } from "../../pages/shop/shop.data";
-import { addItemToCart } from "../utils/cart";
+import * as cart from './actions';
+import { ActionType, getType } from "typesafe-actions";
+import { addItemToCart } from "./utils";
+export type CartAction = ActionType<typeof cart>;
 
 export interface CartState {
   hidden: boolean;
@@ -12,14 +14,14 @@ const INITIAL_STATE: CartState = {
   cartItems: []
 };
 
-const cartReducer = (state: CartState = INITIAL_STATE, action: Action) => {
+const cartReducer = (state = INITIAL_STATE, action: CartAction) => {
   switch (action.type) {
-    case ActionTypes.toggleCartHidden:
+    case getType(cart.toggleCartHidden):
       return {
         ...state,
         hidden: !state.hidden
       }
-    case ActionTypes.addItem:
+    case getType(cart.addItem):
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload)
@@ -27,6 +29,7 @@ const cartReducer = (state: CartState = INITIAL_STATE, action: Action) => {
     default:
       return state;
   }
-};
+}
+
 
 export default cartReducer;

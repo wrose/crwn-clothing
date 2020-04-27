@@ -7,11 +7,11 @@ import { createStructuredSelector } from 'reselect';
 
 import './header.styles.scss';
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { StoreState } from "../../redux/reducers";
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
-import { selectCurrentUser } from "../../redux/selectors/users";
-import { selectCartHidden } from "../../redux/selectors/cart";
+import { StoreState } from "../../store";
+import { selectCartHidden } from "../../features/cart/selectors";
+import { selectCurrentUser } from "../../features/users/selectors";
 
 interface HeaderProps {
   currentUser?: User | null;
