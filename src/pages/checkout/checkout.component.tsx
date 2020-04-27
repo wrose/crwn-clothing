@@ -6,6 +6,7 @@ import { createStructuredSelector } from 'reselect';
 import { CartItem } from "../shop/shop.data";
 import { selectCartItems, selectCartTotal } from "../../features/cart/selectors";
 import { StoreState } from "../../store";
+import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 
 interface CheckoutPageProps {
   cartItems: CartItem[];
@@ -34,7 +35,7 @@ const CheckoutPage = ({cartItems, total}: CheckoutPageProps) => {
       </div>
       {
         cartItems.map(cartItem =>
-          cartItem.name
+          <CheckoutItem key={cartItem.id} item={cartItem}/>
         )
       }
       <div className='total'>

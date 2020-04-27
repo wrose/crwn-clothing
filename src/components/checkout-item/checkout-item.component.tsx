@@ -1,11 +1,22 @@
 import React from 'react';
 
 import './checkout-item.styles.scss';
+import { CartItem } from "../../pages/shop/shop.data";
 
-const CheckoutItem = () => {
+interface CheckoutItemProps {
+  item: CartItem;
+}
+
+const CheckoutItem = ({ item: {name, price, quantity, imageUrl} }: CheckoutItemProps) => {
   return (
-    <div>
-
+    <div className='checkout-item'>
+      <div className='image-container'>
+        <img alt='item' src={imageUrl}/>
+      </div>
+      <span className='name'>{name}</span>
+      <span className='quantity'>{quantity}</span>
+      <span className='price'>${price}</span>
+      <div className='remove-button'>&#10005;</div>
     </div>
   );
 };
