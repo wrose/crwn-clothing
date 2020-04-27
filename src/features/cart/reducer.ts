@@ -1,7 +1,8 @@
 import { CartItem } from "../../pages/shop/shop.data";
 import * as cart from './actions';
 import { ActionType, getType } from "typesafe-actions";
-import { addItemToCart } from "./utils";
+import { addItemToCart, removeItemFromCart } from "./utils";
+
 export type CartAction = ActionType<typeof cart>;
 
 export interface CartState {
@@ -25,6 +26,16 @@ const cartReducer = (state = INITIAL_STATE, action: CartAction) => {
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload)
+      }
+    case getType(cart.clearItemFromCart):
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(cartItem => cartItem.id !== action.payload.id)
+      }
+    case getType(cart.removeItem):
+      return {
+        ...state,
+        cartItems: removeItemFromCart(state.cartItems, action.payload)
       }
     default:
       return state;
