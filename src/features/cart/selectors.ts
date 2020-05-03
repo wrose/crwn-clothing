@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { CartItem } from "../../pages/shop/shop.data";
+import { CartItem } from "../shop/data";
 import { StoreState } from "../../store";
 import { CartState } from "./reducer";
 

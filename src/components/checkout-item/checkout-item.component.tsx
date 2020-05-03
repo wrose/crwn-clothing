@@ -1,7 +1,7 @@
 import React, { Dispatch } from 'react';
 
 import './checkout-item.styles.scss';
-import { CartItem } from "../../pages/shop/shop.data";
+import { CartItem } from "../../features/shop/data";
 import { addItem, clearItemFromCart, removeItem } from "../../features/cart/actions";
 import { connect } from "react-redux";
 import { AnyAction } from 'redux';

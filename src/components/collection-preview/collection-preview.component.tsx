@@ -1,7 +1,7 @@
 import React from "react";
 
 import './collection-preview.styles.scss';
-import { ShopItem } from "../../pages/shop/shop.data";
+import { ShopItem } from "../../features/shop/data";
 import CollectionItem from "../collection-item/collection-item.component";
 
 interface CollectionPreviewProps {

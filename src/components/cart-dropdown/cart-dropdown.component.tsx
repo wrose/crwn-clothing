@@ -4,7 +4,7 @@ import './cart-dropdown.styles.scss';
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
 import CartItemComponent from "../cart-item/cart-item.component";
-import { CartItem } from "../../pages/shop/shop.data";
+import { CartItem } from "../../features/shop/data";
 import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router-dom';
 import { History, LocationState } from 'history';

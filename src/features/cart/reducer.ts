@@ -1,4 +1,4 @@
-import { CartItem } from "../../pages/shop/shop.data";
+import { CartItem } from "../shop/data";
 import * as cart from './actions';
 import { ActionType, getType } from "typesafe-actions";
 import { addItemToCart, removeItemFromCart } from "./utils";

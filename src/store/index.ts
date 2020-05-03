@@ -7,10 +7,16 @@ import rootReducer from "./root-reducer";
 import { applyMiddleware, createStore } from 'redux';
 import { CartAction, CartState } from "../features/cart/reducer";
 import { UserAction, UserState } from "../features/users/reducer";
+import { DirectoryState } from "../features/directory/reducer";
+import { ShopState } from "../features/shop/reducer";
+import { persistStore } from 'redux-persist';
+import logger from "redux-logger";
 
 export interface StoreState {
   user: UserState;
   cart: CartState;
+  directory: DirectoryState;
+  shop: ShopState;
 }
 
 export const history = createBrowserHistory();
@@ -28,13 +34,15 @@ export const epicMiddleware = createEpicMiddleware<
 
 const routerMiddleware = createRouterMiddleware(history);
 
-const middlewares = [epicMiddleware, routerMiddleware];
+const middlewares = [epicMiddleware, routerMiddleware, logger];
 
 const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
 const initialState = {};
 
 const store = createStore(rootReducer, initialState, enhancer);
+
+export const persistor = persistStore(store);
 
 epicMiddleware.run(rootEpic);
 

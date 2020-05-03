@@ -1,3 +1,11 @@
+// export interface Shops {
+//   hats: ShopData;
+//   sneakers: ShopData;
+//   jackets: ShopData;
+//   womens: ShopData;
+//   mens: ShopData;
+// }
+
 export interface ShopData {
   id: number;
   title: string;
@@ -16,8 +24,8 @@ export interface CartItem extends ShopItem {
   quantity: number;
 }
 
-const SHOP_DATA: ShopData[] = [
-  {
+const SHOP_DATA: Record<string, ShopData> = {
+  hats: {
     id: 1,
     title: 'Hats',
     routeName: 'hats',
@@ -78,7 +86,7 @@ const SHOP_DATA: ShopData[] = [
       }
     ]
   },
-  {
+  sneakers: {
     id: 2,
     title: 'Sneakers',
     routeName: 'sneakers',
@@ -133,7 +141,7 @@ const SHOP_DATA: ShopData[] = [
       }
     ]
   },
-  {
+  jackets: {
     id: 3,
     title: 'Jackets',
     routeName: 'jackets',
@@ -170,7 +178,7 @@ const SHOP_DATA: ShopData[] = [
       }
     ]
   },
-  {
+  womens: {
     id: 4,
     title: 'Womens',
     routeName: 'womens',
@@ -219,7 +227,7 @@ const SHOP_DATA: ShopData[] = [
       }
     ]
   },
-  {
+  mens: {
     id: 5,
     title: 'Mens',
     routeName: 'mens',
@@ -262,6 +270,6 @@ const SHOP_DATA: ShopData[] = [
       }
     ]
   }
-];
+};
 
 export default SHOP_DATA;

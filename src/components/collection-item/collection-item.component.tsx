@@ -3,7 +3,7 @@ import React from "react";
 import './collection-item.styles.scss';
 import CustomButton from "../custom-button/custom-button.component";
 import { connect } from "react-redux";
-import { ShopItem } from "../../pages/shop/shop.data";
+import { ShopItem } from "../../features/shop/data";
 import { addItem } from "../../features/cart/actions";
 
 interface CollectionItemProps {

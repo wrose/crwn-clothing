@@ -3,7 +3,7 @@ import React from 'react';
 import './checkout.styles.scss';
 import { connect } from "react-redux";
 import { createStructuredSelector } from 'reselect';
-import { CartItem } from "../shop/shop.data";
+import { CartItem } from "../../features/shop/data";
 import { selectCartItems, selectCartTotal } from "../../features/cart/selectors";
 import { StoreState } from "../../store";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
