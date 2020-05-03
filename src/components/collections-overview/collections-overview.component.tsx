@@ -3,30 +3,29 @@ import React from 'react';
 import './collections-overview.styles.scss';
 import { createStructuredSelector } from "reselect";
 import { StoreState } from "../../store";
-import { selectShopCollections } from "../../features/shop/selectors";
+import { selectCollectionsForPreview } from "../../features/shop/selectors";
 import { connect } from "react-redux";
 import { ShopData } from "../../features/shop/data";
+import CollectionPreview from "../collection-preview/collection-preview.component";
 
 interface CollectionsOverviewProps {
-  collections: Record<string, ShopData>;
-}
-
-interface BigObject<T> {
-  [index: string]: T;
+  collections: ShopData[]
 }
 
 const CollectionsOverview = ({ collections }: CollectionsOverviewProps) => {
   return (
     <div className='collections-overview'>
       {
-
+        collections.map(({ id, ...otherCollectionProps }) => (
+          <CollectionPreview key={id} {...otherCollectionProps} />
+        ))
       }
     </div>
   );
 };
 
 const mapStateToProps = createStructuredSelector<StoreState, CollectionsOverviewProps>({
-  collections: selectShopCollections
+  collections: selectCollectionsForPreview
 });
 
 export default connect(mapStateToProps)(CollectionsOverview);
