@@ -34,7 +34,10 @@ export const epicMiddleware = createEpicMiddleware<
 
 const routerMiddleware = createRouterMiddleware(history);
 
-const middlewares = [epicMiddleware, routerMiddleware, logger];
+const middlewares = [epicMiddleware, routerMiddleware];
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(logger);
+}
 
 const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
